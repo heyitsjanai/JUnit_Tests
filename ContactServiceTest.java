@@ -1,18 +1,19 @@
-
-//					  SNHU CS-320 Module Three Milestone 				    //
-//         Author: 				Janai Cano                                  //
-//         Date: 				05-20-2023                                  //
+/*					
+* SNHU CS-320 Module Three Milestone 				    
+* Author: @heyitsJanai                                               
+* Date: 05-20-2023                               
+*/
 
 package tests;
 
+/* This class runs JUnit tests for the ContactService class.
+*  I achieved over 80% testing coverage using these tests. */
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
-
 import cs_320_mod3_milestone.Contact;
 import cs_320_mod3_milestone.ContactService;
-
 import java.util.Map;
 
 public class ContactServiceTest {
@@ -20,14 +21,15 @@ public class ContactServiceTest {
     private Contact contact1;
     private Contact contact2;
 
+    //setting up valid contacts
     @BeforeEach
     public void setUp() {
         contactService = new ContactService();
-
         contact1 = new Contact("007", "Han", "Solo", "1234567890", "123 Galaxy Far Away St");
         contact2 = new Contact("002", "Whitney", "Houston", "9876543210", "456 Elm St., Hollywood, CA");
     }
 
+    //function to test contacts can be added correctly
     @Test
     public void testAddContact() {
     	//adding contact1
@@ -46,6 +48,7 @@ public class ContactServiceTest {
         assertEquals(contact2, contacts.get("002"));
     }
 
+    //function to test for duplicate contacts
     @Test
     public void testAddContact_DuplicateId() {
     	//adding contact1
@@ -57,6 +60,7 @@ public class ContactServiceTest {
         assertEquals(1, contacts.size());
     }
 
+    //function to test deleting contacts
     @Test
     public void testDeleteContact() {
     	//adding two contacts
@@ -72,6 +76,7 @@ public class ContactServiceTest {
         assertEquals(contact2, contacts.get("002"));
     }
 
+    //function to delete a non-existent contact
     @Test
     public void testDeleteContact_NonExistentId() {
     	//adding two contacts
@@ -86,6 +91,7 @@ public class ContactServiceTest {
         assertTrue(contacts.containsKey("002"));
     }
 
+    //test to update first name 
     @Test
     public void testUpdateContactField_FirstName() {
     	//adding contact1
@@ -97,6 +103,7 @@ public class ContactServiceTest {
         assertEquals("Obi", contacts.get("007").getFirstName());
     }
 
+    //test to update last name
     @Test
     public void testUpdateContactField_LastName() {
     	//adding contact1
@@ -108,6 +115,7 @@ public class ContactServiceTest {
         assertEquals("Wan", contacts.get("007").getLastName());
     }
 
+    //test to update phone number
     @Test
     public void testUpdateContactField_Phone() {
         //adding contact1 with original phone number
@@ -118,6 +126,7 @@ public class ContactServiceTest {
         assertEquals("1111111111", contacts.get("007").getPhone());
     }
 
+    //test to update address
     @Test
     public void testUpdateContactField_Address() {
         //adding contact1 with original address
@@ -129,6 +138,7 @@ public class ContactServiceTest {
         assertEquals("789 Tattoine Ln.", contacts.get("007").getAddress());
     }
 
+    //test to update invalid field, such as email
     @Test
     public void testUpdateContactField_InvalidField() {
     	//adding contact1
@@ -139,6 +149,7 @@ public class ContactServiceTest {
         																					"hansolo@starwars.com"));
     }
 
+    //test to update non-existent contact
     @Test
     public void testUpdateContactField_NonExistentId() {
     	//adding contact1
