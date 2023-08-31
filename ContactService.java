@@ -1,23 +1,26 @@
-
-
-//					  SNHU CS-320 Module Three Milestone 				    //
-//         Author: 				Janai Cano                                  //
-//         Date: 				05-20-2023                                  //
-
+/*					
+* SNHU CS-320 Module Three Milestone 				    
+* Author: @heyitsJanai                                               
+* Date: 05-20-2023                               
+*/
 
 package cs_320_mod3_milestone;
+
+/* This is the ContactService class, 
+*  which provides all CRUD methods for Contact objects. */
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class ContactService {
-	//declaring local variable - HashMap to store contacts
+	//HashMap stores the contacts
     protected Map<String, Contact> contacts;
     
     public ContactService() {
         this.contacts = new HashMap<>();
     }
     
-    //function to add a new contact
+    //function to ADD a new contact
     public void addContact(Contact contact) {
     	//make sure the contact is not null
     	if (contact != null) {
@@ -40,7 +43,7 @@ public class ContactService {
         }
     }
     
-    //function to delete a contact
+    //function to DELETE a contact
     public void deleteContact(String contactId) {
     	//checks if the contact exists in HashMap
         if (contactId != null && contacts.containsKey(contactId)) {
@@ -54,7 +57,7 @@ public class ContactService {
         }
     }
     
-    //function to update a contact field -- user must specify what field to be updated
+    //function to UPDATE a contact field -- user must specify what field to be updated
     public void updateContactField(String contactId, String field, String value) {
     	//checks if the contact exists in HashMap
         if (contactId != null && contacts.containsKey(contactId)) {
@@ -91,7 +94,7 @@ public class ContactService {
         }
     }
     
-    //returns the HashMap of contacts
+    //function to RETURN the HashMap of contacts
 	public Map<String, Contact> getContacts() {
 		return contacts;
 	}
