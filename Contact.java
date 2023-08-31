@@ -1,12 +1,16 @@
-
-//					  SNHU CS-320 Module Three Milestone 				    //
-//         Author: 				Janai Cano                                  //
-//         Date: 				05-20-2023                                  //
+/*					
+* SNHU CS-320 Module Three Milestone 				    
+* Author: @heyitsJanai                                               
+* Date: 05-20-2023                               
+*/
 
 package cs_320_mod3_milestone;
 
+/* This is the main Contact object class.
+*  Contact objects are simply created/called here. */
+
 public class Contact {
-	//declaring local variables
+	
 	private final String id;
 	private String firstName;
 	private String lastName;
